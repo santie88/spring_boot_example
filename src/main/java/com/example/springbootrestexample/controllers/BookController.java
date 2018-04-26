@@ -3,16 +3,11 @@ package com.example.springbootrestexample.controllers;
 import com.example.springbootrestexample.models.Book;
 import com.example.springbootrestexample.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@RestController //Me crea el bean en el Contexto y ademas me lo crea como Controller para REST
+@RestController
 @RequestMapping("/api/book/")
 public class BookController {
 
@@ -24,9 +19,24 @@ public class BookController {
         return bookRepository.listBooks();
     }
 
+    @RequestMapping(value = "{isbn}", method = RequestMethod.GET)
+    public Book getBook(@PathVariable("isbn") String isbn){
+        return bookRepository.getBookByIsbn(isbn);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public Book postBook(@RequestBody Book book){
         return bookRepository.createBook(book);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public void putBook(@RequestBody Book book){
+        bookRepository.updateBook(book);
+    }
+
+    @RequestMapping(value = "{isbn}", method = RequestMethod.DELETE)
+    public void deleteBook(@PathVariable("isbn") String isbn){
+        bookRepository.deleteBook(isbn);
     }
 
 }
