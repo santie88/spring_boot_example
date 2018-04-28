@@ -1,4 +1,4 @@
-package com.example.springbootrestexample.repository;
+package com.example.springbootrestexample.repositories;
 
 import com.example.springbootrestexample.models.Magazine;
 import org.springframework.stereotype.Service;
@@ -17,16 +17,11 @@ public class MagazineRepository {
     }
 
     public Magazine getMagazineByIsbn(String isbn){
-        Magazine magazine = null;
+        return doGetMagazineByIsbn(isbn);
+    }
 
-        for (Magazine magazineList : magazines) {
-            if(magazineList.getIsbn().equals(isbn)) {
-                magazine = magazineList;
-                break;
-            }
-        }
-
-        return magazine;
+    private Magazine doGetMagazineByIsbn(String isbn){
+        return magazines.stream().filter(magazine -> magazine.getIsbn().equals(isbn)).findAny().get();
     }
 
 }

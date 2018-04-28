@@ -1,32 +1,16 @@
 package com.example.springbootrestexample.models;
 
-public class Book {
+import java.util.Date;
 
-    private String isbn;
-    private String name;
-    private Author author;
+public class Book extends ReadObject{
 
-    public String getIsbn() {
-        return isbn;
+    private Date releaseDate;
+
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }

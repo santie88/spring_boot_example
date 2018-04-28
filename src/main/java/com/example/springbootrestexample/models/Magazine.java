@@ -1,6 +1,6 @@
 package com.example.springbootrestexample.models;
 
-public class Magazine extends Book {
+public class Magazine extends ReadObject {
 
     private String description;
 
