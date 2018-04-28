@@ -6,13 +6,10 @@ import com.example.springbootrestexample.logic.AuthorLogic;
 import com.example.springbootrestexample.logic.BookLogic;
 import com.example.springbootrestexample.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/book/")
