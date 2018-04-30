@@ -1,23 +1,19 @@
 package com.example.springbootrestexample.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Author {
 
     private String name;
     private String email;
 
-    public String getName() {
-        return name;
-    }
+    public Author() {}
 
-    public void setName(String name) {
+    public Author(String name, String email){
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
     }
 }

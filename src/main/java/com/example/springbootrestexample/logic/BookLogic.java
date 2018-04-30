@@ -6,10 +6,10 @@ import com.example.springbootrestexample.exceptions.BookIsbnDoesNotExistExceptio
 import com.example.springbootrestexample.models.Book;
 import com.example.springbootrestexample.repositories.AuthorRepository;
 import com.example.springbootrestexample.repositories.BookRepository;
+import com.example.springbootrestexample.springdatamongodb.BookCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -54,7 +54,8 @@ public class BookLogic {
     }
 
     public boolean getBookExistByIsbn(String isbn){
-        return bookRepository.listBooks().stream().anyMatch(book -> book.getIsbn().equals(isbn));
+        return (bookRepository.getBookByIsbn(isbn)!= null);
+        //return bookRepository.listBooks().stream().anyMatch(book -> book.getIsbn().equals(isbn));
     }
 
     public Book createBook(Book book){

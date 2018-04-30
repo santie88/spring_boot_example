@@ -1,28 +1,21 @@
 package com.example.springbootrestexample.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class ReadObject {
 
     private String isbn;
     private String name;
     private Author author;
 
-    public String getIsbn() {
-        return isbn;
-    }
+    public ReadObject() {}
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public ReadObject(String isbn, String name, Author author){
+        this.isbn = isbn;
         this.name = name;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
         this.author = author;
     }
 }
