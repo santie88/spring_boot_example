@@ -1,19 +1,16 @@
 package com.example.springbootrestexample.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Magazine extends ReadObject {
 
     private String description;
-
-    public Magazine() {}
-
-    public Magazine(String isbn, String name, Author author, String description){
-        super(isbn, name, author);
-        this.description = description;
-    }
 
 }

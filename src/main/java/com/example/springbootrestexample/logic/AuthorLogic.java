@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 public class AuthorLogic extends ExceptionMessageLogic {
 
     @Autowired
-    AuthorRepository authorRepository;
+    private AuthorRepository authorRepository;
 
     public boolean getAuthorExistByName(String name){
         return authorRepository.listAuthors().stream().anyMatch(author -> author.getName().equals(name));
