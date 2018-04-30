@@ -6,7 +6,6 @@ import com.example.springbootrestexample.exceptions.BookIsbnDoesNotExistExceptio
 import com.example.springbootrestexample.models.Book;
 import com.example.springbootrestexample.repositories.AuthorRepository;
 import com.example.springbootrestexample.repositories.BookRepository;
-import com.example.springbootrestexample.springdatamongodb.BookCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +13,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class BookLogic {
+public class BookLogic extends ExceptionMessageLogic {
 
     @Autowired
     private BookRepository bookRepository;
     @Autowired
     private AuthorRepository authorRepository;
-    private final String customExceptionMessage = "There was an unhandled exception. Please notify the administrator.";
 
     public List<Book> getAllBooks(){
         return getAllBooks("");
@@ -55,7 +53,6 @@ public class BookLogic {
 
     public boolean getBookExistByIsbn(String isbn){
         return (bookRepository.getBookByIsbn(isbn)!= null);
-        //return bookRepository.listBooks().stream().anyMatch(book -> book.getIsbn().equals(isbn));
     }
 
     public Book createBook(Book book){

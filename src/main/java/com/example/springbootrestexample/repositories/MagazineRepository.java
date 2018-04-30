@@ -1,27 +1,5 @@
 package com.example.springbootrestexample.repositories;
 
-import com.example.springbootrestexample.models.Magazine;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-
-@Service
-public class MagazineRepository {
-
-    private List<Magazine> magazines = new ArrayList<>();
-
-    public Magazine createMagazine(Magazine magazine){
-        magazines.add(magazine);
-        return magazine;
-    }
-
-    public Magazine getMagazineByIsbn(String isbn){
-        return doGetMagazineByIsbn(isbn);
-    }
-
-    private Magazine doGetMagazineByIsbn(String isbn){
-        return magazines.stream().filter(magazine -> magazine.getIsbn().equals(isbn)).findAny().get();
-    }
-
+public interface MagazineRepository {
+    //TODO....
 }
