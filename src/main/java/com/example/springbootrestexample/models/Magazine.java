@@ -5,13 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book extends ReadObject{
+public class Magazine extends ReadObject {
 
-    private Date releaseDate;
+    private String description;
+
 }
