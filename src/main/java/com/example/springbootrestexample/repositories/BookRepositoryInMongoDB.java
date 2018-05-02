@@ -32,6 +32,7 @@ public class BookRepositoryInMongoDB implements BookRepository {
         updatedBook.setName(book.getName());
         updatedBook.setAuthor(book.getAuthor());
         updatedBook.setReleaseDate(book.getReleaseDate());
+        updatedBook.setLastCheck(book.getLastCheck());
         bookCollection.save(updatedBook);
     }
 
