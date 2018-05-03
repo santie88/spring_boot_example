@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AuthorRepositoryInMongoDB {
+public class AuthorRepositoryInMongoDB implements AuthorRepository {
 
     //This is if I work with Mongo Java Driver - Only for example
     //@Autowired
