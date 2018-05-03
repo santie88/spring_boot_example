@@ -4,25 +4,18 @@ import com.example.springbootrestexample.comparators.BookIsbnComparator;
 import com.example.springbootrestexample.comparators.BookNameComparator;
 import com.example.springbootrestexample.exceptions.BookIsbnDoesNotExistException;
 import com.example.springbootrestexample.models.Book;
-import com.example.springbootrestexample.repositories.AuthorRepository;
 import com.example.springbootrestexample.repositories.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@AllArgsConstructor
 public class BookLogic extends ExceptionMessageLogic {
 
-    @Autowired
-    @Qualifier("bookRepository")
-    private BookRepository bookRepository;
-    @Autowired
-    @Qualifier("authorRepository")
-    private AuthorRepository authorRepository;
+    private final BookRepository bookRepository;
 
     public List<Book> getAllBooks(){
         return getAllBooks("");

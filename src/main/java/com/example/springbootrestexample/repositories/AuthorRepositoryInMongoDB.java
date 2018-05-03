@@ -3,7 +3,6 @@ package com.example.springbootrestexample.repositories;
 import com.example.springbootrestexample.models.Author;
 import com.example.springbootrestexample.springdatamongodb.AuthorCollection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

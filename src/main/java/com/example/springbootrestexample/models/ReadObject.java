@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -19,5 +19,5 @@ public abstract class ReadObject {
     private String isbn;
     private String name;
     private Author author;
-    private Date lastCheck;
+    private LocalDateTime lastCheck;
 }

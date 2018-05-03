@@ -3,19 +3,17 @@ package com.example.springbootrestexample.logic;
 import com.example.springbootrestexample.exceptions.AuthorNameDoesNotExistException;
 import com.example.springbootrestexample.models.Author;
 import com.example.springbootrestexample.repositories.AuthorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@AllArgsConstructor
 public class AuthorLogic extends ExceptionMessageLogic {
 
-    @Autowired
-    @Qualifier("authorRepository")
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
 
     public boolean getAuthorExistByName(String name){
         return authorRepository.listAuthors().stream().anyMatch(author -> author.getName().equals(name));

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
+import java.time.LocalDateTime;
 
 @Component
 public class BookChecking {
@@ -17,7 +17,7 @@ public class BookChecking {
     @Scheduled(fixedDelayString = "${schedule.frequency}")
     public void CheckBook(){
         Book book = bookLogic.getBookByIsbn("1");
-        book.setLastCheck(Calendar.getInstance().getTime());
+        book.setLastCheck(LocalDateTime.now());
         bookLogic.updateBook(book);
     }
 }
