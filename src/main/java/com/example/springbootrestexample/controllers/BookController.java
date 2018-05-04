@@ -5,7 +5,7 @@ import com.example.springbootrestexample.exceptions.BookIsbnExistException;
 import com.example.springbootrestexample.logic.AuthorLogic;
 import com.example.springbootrestexample.logic.BookLogic;
 import com.example.springbootrestexample.models.Book;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/book/")
+@AllArgsConstructor
 public class BookController {
 
-    @Autowired
-    private BookLogic bookLogic;
-    @Autowired
-    private AuthorLogic authorLogic;
+    private final BookLogic bookLogic;
+    private final AuthorLogic authorLogic;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Book> findAll() {

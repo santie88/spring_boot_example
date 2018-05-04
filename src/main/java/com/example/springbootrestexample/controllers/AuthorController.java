@@ -5,6 +5,7 @@ import com.example.springbootrestexample.logic.AuthorLogic;
 import com.example.springbootrestexample.models.Author;
 import com.example.springbootrestexample.repositories.AuthorRepository;
 import com.example.springbootrestexample.repositories.AuthorRepositoryInMongoDB;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +14,10 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/author/")
+@AllArgsConstructor
 public class AuthorController {
 
-    @Autowired
-    private AuthorLogic authorLogic;
+    private final AuthorLogic authorLogic;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Author> findAll(){

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Deprecated
 public class AuthorCollectionongoJavaDriver extends MongoDBConnection {
 
     private final String collectionName = "authors";
