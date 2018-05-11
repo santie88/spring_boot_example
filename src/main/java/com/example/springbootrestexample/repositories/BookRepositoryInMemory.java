@@ -1,11 +1,13 @@
 package com.example.springbootrestexample.repositories;
 
 import com.example.springbootrestexample.models.Book;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class BookRepositoryInMemory implements BookRepository {
 
     private List<Book> books = new ArrayList<>();
