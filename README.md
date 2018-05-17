@@ -1,6 +1,6 @@
 # spring_boot_practice
 
-This is a simple app which shows how simple is:
+This is a simple app which shows how to:
 
 * Initialize an Spring environment
 * Read a properties file
