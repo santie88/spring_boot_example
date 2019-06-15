@@ -5,17 +5,19 @@ import com.example.springbootrestexample.comparators.BookNameComparator;
 import com.example.springbootrestexample.exceptions.BookIsbnDoesNotExistException;
 import com.example.springbootrestexample.models.Book;
 import com.example.springbootrestexample.repositories.BookRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-@AllArgsConstructor
 public class BookLogic extends ExceptionMessageLogic {
 
     private final BookRepository bookRepository;
+
+    public BookLogic(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     public List<Book> getAllBooks(){
         return getAllBooks("");
